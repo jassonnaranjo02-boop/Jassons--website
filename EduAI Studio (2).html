@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAI Studio - AI Learning Powered</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+            
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            
+            --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            --font-size-base: 14px;
+            --font-size-sm: 12px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            font-weight: var(--font-weight-semibold);
+            line-height: var(--line-height-tight);
+            color: var(--color-text);
+        }
+
+        h1 { font-size: var(--font-size-4xl); }
+        h2 { font-size: var(--font-size-3xl); }
+        h3 { font-size: var(--font-size-2xl); }
+        h4 { font-size: var(--font-size-xl); }
+
+        p {
+            margin: 0 0 var(--space-16) 0;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--duration-fast) var(--ease-standard);
+        }
+
+        a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            line-height: 1.5;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+        }
+
+        .btn--primary {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn--primary:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .btn--outline {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+        }
+
+        .btn--outline:hover {
+            background: var(--color-secondary);
+        }
+
+        .btn--lg {
+            padding: var(--space-12) var(--space-24);
+            font-size: var(--font-size-lg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-16);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .gap-16 {
+            gap: var(--space-16);
+        }
+
+        .gap-24 {
+            gap: var(--space-24);
+        }
+
+        .mb-8 { margin-bottom: var(--space-8); }
+        .mb-16 { margin-bottom: var(--space-16); }
+        .mb-24 { margin-bottom: var(--space-24); }
+        .mt-8 { margin-top: var(--space-8); }
+        .mt-16 { margin-top: var(--space-16); }
+
+        /* Login Screen */
+        .login-screen {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(33, 128, 141, 0.1) 0%, rgba(50, 184, 198, 0.1) 100%);
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-16);
+        }
+
+        .login-screen.active {
+            display: flex;
+        }
+
+        .login-card {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            max-width: 400px;
+            width: 100%;
+            border: 1px solid var(--color-card-border);
+        }
+
+        .login-card h2 {
+            text-align: center;
+            margin-bottom: var(--space-24);
+            color: var(--color-primary);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-16);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-8);
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-sm);
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: var(--space-8) var(--space-12);
+            font-size: var(--font-size-base);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            background: var(--color-background);
+            color: var(--color-text);
+            transition: border-color var(--duration-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+        }
+
+        .error-message {
+            color: var(--color-error);
+            font-size: var(--font-size-sm);
+            margin-top: var(--space-4);
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .login-button {
+            width: 100%;
+            margin-top: var(--space-24);
+        }
+
+        .login-info {
+            background: rgba(var(--color-teal-500-rgb), 0.08);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            margin-top: var(--space-16);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: none;
+        }
+
+        .main-content.active {
+            display: block;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-12) var(--space-16);
+        }
+
+        .logo {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: var(--space-24);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: color var(--duration-fast);
+            padding: var(--space-8) 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-link.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        .nav-right {
+            display: flex;
+            gap: var(--space-16);
+            align-items: center;
+        }
+
+        .user-info {
+            font-weight: 500;
+            color: var(--color-text);
+        }
+
+        .user-role {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(33, 128, 141, 0.08) 0%, rgba(50, 184, 198, 0.08) 100%);
+            padding: 80px var(--space-16);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--space-16);
+            color: var(--color-text);
+        }
+
+        .hero p {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto var(--space-24);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--space-16);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features */
+        .features {
+            padding: 80px var(--space-16);
+            background: var(--color-surface);
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: var(--space-24);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-24);
+        }
+
+        .feature-card {
+            background: var(--color-background);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            transition: all var(--duration-normal) var(--ease-standard);
+        }
+
+        .feature-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(var(--color-teal-500-rgb), 0.12);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: var(--space-16);
+        }
+
+        .feature-card h3 {
+            margin-bottom: var(--space-8);
+            font-size: var(--font-size-2xl);
+        }
+
+        .feature-card p {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-base);
+        }
+
+        /* Teacher Dashboard */
+        .teacher-dashboard {
+            padding: 40px var(--space-16);
+        }
+
+        .dashboard-title {
+            margin-bottom: var(--space-24);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-24);
+        }
+
+        .dashboard-card {
+            background: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dashboard-card h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-16);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin: var(--space-16) 0;
+        }
+
+        /* Student Dashboard */
+        .student-dashboard {
+            padding: 40px var(--space-16);
+        }
+
+        .welcome-card {
+            background: linear-gradient(135deg, rgba(33, 128, 141, 0.15) 0%, rgba(50, 184, 198, 0.15) 100%);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-24);
+            text-align: center;
+        }
+
+        .welcome-card h2 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-8);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-24);
+            margin-top: var(--space-24);
+        }
+
+        .course-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-normal) var(--ease-standard);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .course-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, rgba(33, 128, 141, 0.2) 0%, rgba(50, 184, 198, 0.2) 100%);
+            padding: var(--space-24);
+            text-align: center;
+            border-bottom: 1px solid var(--color-card-border);
+        }
+
+        .course-header h3 {
+            margin-bottom: var(--space-8);
+        }
+
+        .course-body {
+            padding: var(--space-24);
+        }
+
+        .course-details {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: var(--space-16);
+            font-size: var(--font-size-sm);
+        }
+
+        .course-detail {
+            flex: 1;
+        }
+
+        .course-detail strong {
+            display: block;
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-lg);
+        }
+
+        .course-description {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-16);
+            font-size: var(--font-size-base);
+        }
+
+        /* AI Chat */
+        .ai-chat {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 80px);
+            padding: 0;
+            background: var(--color-background);
+        }
+
+        .model-selector-bar {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-12) var(--space-24);
+            display: flex;
+            gap: var(--space-12);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .model-label {
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            min-width: fit-content;
+        }
+
+        .model-buttons {
+            display: flex;
+            gap: var(--space-8);
+            flex-wrap: wrap;
+        }
+
+        .model-btn {
+            padding: var(--space-6) var(--space-12);
+            border: 1px solid var(--color-border);
+            background: var(--color-background);
+            color: var(--color-text);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            transition: all var(--duration-fast);
+        }
+
+        .model-btn:hover {
+            border-color: var(--color-primary);
+            background: var(--color-secondary);
+        }
+
+        .model-btn.active {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border-color: var(--color-primary);
+        }
+
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--space-24);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-16);
+        }
+
+        .chat-message {
+            display: flex;
+            gap: var(--space-12);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .message-user .message-avatar {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .message-ai .message-avatar {
+            background: rgba(var(--color-teal-500-rgb), 0.2);
+            color: var(--color-primary);
+        }
+
+        .message-content {
+            background: var(--color-surface);
+            padding: var(--space-12) var(--space-16);
+            border-radius: var(--radius-lg);
+            max-width: 70%;
+            word-wrap: break-word;
+            border: 1px solid var(--color-card-border);
+        }
+
+        .message-ai .message-content {
+            background: linear-gradient(135deg, rgba(33, 128, 141, 0.08) 0%, rgba(50, 184, 198, 0.08) 100%);
+            border-color: rgba(var(--color-teal-500-rgb), 0.2);
+        }
+
+        .message-user {
+            justify-content: flex-end;
+        }
+
+        .message-user .message-content {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border-color: var(--color-primary);
+        }
+
+        .chat-input-area {
+            padding: var(--space-16);
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            gap: var(--space-12);
+        }
+
+        .chat-input-wrapper {
+            flex: 1;
+            display: flex;
+            gap: var(--space-8);
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: var(--space-12) var(--space-16);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            resize: none;
+            max-height: 120px;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+        }
+
+        .chat-send-btn {
+            padding: var(--space-12) var(--space-16);
+        }
+
+        /* Home Screen */
+        .home-screen {
+            display: none;
+        }
+
+        .home-screen.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-cta { flex-direction: column; }
+            .btn--lg { width: 100%; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .course-grid { grid-template-columns: 1fr; }
+            .login-card { padding: var(--space-16); }
+            .nav-center { gap: var(--space-16); }
+            .message-content { max-width: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Role Selection Screen -->
+    <div class="login-screen active" id="roleScreen">
+        <div class="login-card">
+            <h2>Welcome to EduAI Studio</h2>
+            <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: var(--space-24);">Are you a student or teacher?</p>
+            
+            <div style="display: flex; gap: var(--space-16); flex-direction: column;">
+                <button class="btn btn--primary btn--lg" onclick="showStudentLogin()" style="width: 100%;">👨‍🎓 Student</button>
+                <button class="btn btn--outline btn--lg" onclick="showTeacherLogin()" style="width: 100%;">👨‍🏫 Teacher</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Login Screen -->
+    <div class="login-screen" id="studentLoginScreen">
+        <div class="login-card">
+            <button class="btn btn--outline" onclick="backToRole()" style="margin-bottom: var(--space-16); width: 100%; text-align: left;">← Back</button>
+            
+            <h2>Student Login</h2>
+            
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="studentNameInput" class="form-control" placeholder="Enter your name" />
+                <div class="error-message" id="studentNameError">Please enter your name</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Access Code</label>
+                <input type="password" id="studentCodeInput" class="form-control" placeholder="Enter your access code" />
+                <div class="error-message" id="studentCodeError">Invalid access code</div>
+            </div>
+
+            <button class="btn btn--primary btn--lg login-button" onclick="handleStudentLogin()">Sign In</button>
+
+            <div class="login-info">
+                <p><strong>Demo Code:</strong></p>
+                <p><strong>Jasson67</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teacher Login Screen -->
+    <div class="login-screen" id="teacherLoginScreen">
+        <div class="login-card">
+            <button class="btn btn--outline" onclick="backToRole()" style="margin-bottom: var(--space-16); width: 100%; text-align: left;">← Back</button>
+            
+            <h2>Teacher Login</h2>
+            
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="teacherNameInput" class="form-control" placeholder="Enter your name" />
+                <div class="error-message" id="teacherNameError">Please enter your name</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Access Code</label>
+                <input type="password" id="teacherCodeInput" class="form-control" placeholder="Enter your access code" />
+                <div class="error-message" id="teacherCodeError">Invalid access code</div>
+            </div>
+
+            <button class="btn btn--primary btn--lg login-button" onclick="handleTeacherLogin()">Sign In</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Navigation -->
+        <nav>
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <a class="logo" onclick="goHome()" style="cursor: pointer;">EduAI</a>
+                <div class="nav-center">
+                    <span class="nav-link" id="homeLink" onclick="goHome()">Home</span>
+                    <span class="nav-link" id="dashboardLink" onclick="goToDashboard()">Dashboard</span>
+                    <span class="nav-link" id="aiLink" onclick="goToAI()">🤖 AI</span>
+                </div>
+                <div class="nav-right">
+                    <div>
+                        <div class="user-info" id="userDisplay">User</div>
+                        <div class="user-role" id="roleDisplay">Role</div>
+                    </div>
+                    <button class="btn btn--outline" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Home Screen -->
+        <div id="homeScreen" class="home-screen active">
+            <section class="hero">
+                <div class="container">
+                    <h1>Welcome to EduAI Studio</h1>
+                    <p>AI-Powered Learning Platform Powered for Success</p>
+                    <div class="hero-cta">
+                        <button class="btn btn--primary btn--lg" onclick="goToDashboard()">Go to Dashboard</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h2>Why Choose EduAI?</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>AI Tutoring</h3>
+                            <p>Get personalized tutoring powered by advanced AI that adapts to your learning style.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Progress Tracking</h3>
+                            <p>Monitor your progress with detailed analytics and insights into your learning journey.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Personalized Learning</h3>
+                            <p>Experience learning tailored specifically to your needs and goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Student Dashboard -->
+        <div id="studentDashboard" style="display: none;">
+            <div class="student-dashboard">
+                <div class="welcome-card">
+                    <h2>Welcome, <span id="studentName">Student</span>! 👋</h2>
+                    <p>Ready to master your subjects? Start learning today with personalized AI tutoring.</p>
+                </div>
+
+                <h2 style="margin-bottom: var(--space-24);">Your Progress Overview</h2>
+                <div class="dashboard-grid" style="margin-bottom: var(--space-32);">
+                    <div class="dashboard-card">
+                        <h3>📚 Total Assignments</h3>
+                        <div class="stat-value">24</div>
+                        <p style="color: var(--color-text-secondary);">Assigned this month</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>✅ Completed</h3>
+                        <div class="stat-value">19</div>
+                        <p style="color: var(--color-text-secondary);">79% completion rate</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>📊 Average Score</h3>
+                        <div class="stat-value">87%</div>
+                        <p style="color: var(--color-text-secondary);">Across all subjects</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>🎯 Overall Progress</h3>
+                        <div class="stat-value">82%</div>
+                        <p style="color: var(--color-text-secondary);">Course completion</p>
+                    </div>
+                </div>
+
+                <h2 style="margin-bottom: var(--space-24);">Your Learning Paths</h2>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Mathematics Mastery</h3>
+                            <p style="color: var(--color-text-secondary); margin: 0;">Complete guide to math success</p>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-details">
+                                <div class="course-detail">
+                                    <strong>32</strong>
+                                    <p>Lessons</p>
+                                </div>
+                                <div class="course-detail">
+                                    <strong>8 hrs</strong>
+                                    <p>Duration</p>
+                                </div>
+                                <div class="course-detail">
+                                    <strong>All</strong>
+                                    <p>Levels</p>
+                                </div>
+                            </div>
+                            <p class="course-description">From pre-algebra to calculus. Master equations, geometry, trigonometry, and more.</p>
+                            <div style="margin: var(--space-16) 0; background: rgba(var(--color-teal-500-rgb), 0.1); padding: var(--space-12); border-radius: var(--radius-base);">
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0;"><strong>📈 Your Progress</strong></p>
+                                <div style="width: 100%; height: 8px; background: var(--color-secondary); border-radius: var(--radius-full); overflow: hidden;">
+                                    <div style="width: 89%; height: 100%; background: var(--color-primary);"></div>
+                                </div>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text); margin: var(--space-8) 0 0 0;"><strong>89%</strong> complete • 6/8 assignments done • Score: <strong>92%</strong></p>
+                            </div>
+                            <button class="btn btn--primary" style="width: 100%; cursor: pointer;">Continue Learning</button>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Science Explorer</h3>
+                            <p style="color: var(--color-text-secondary); margin: 0;">Physics, Chemistry & Biology</p>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-details">
+                                <div class="course-detail">
+                                    <strong>48</strong>
+                                    <p>Lessons</p>
+                                </div>
+                                <div class="course-detail">
+                                    <strong>12 hrs</strong>
+                                    <p>Duration</p>
+                                </div>
+                                <div class="course-detail">
+                                    <strong>All</strong>
+                                    <p>Levels</p>
+                                </div>
+                            </div>
+                            <p class="course-description">Explore the fundamentals of science with interactive experiments and real-world applications.</p>
+                            <div style="margin: var(--space-16) 0; background: rgba(var(--color-teal-500-rgb), 0.1); padding: var(--space-12); border-radius: var(--radius-base);">
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0;"><strong>📈 Your Progress</strong></p>
+                                <div style="width: 100%; height: 8px; background: var(--color-secondary); border-radius: var(--radius-full); overflow: hidden;">
+                                    <div style="width: 73%; height: 100%; background: var(--color-primary);"></div>
+                                </div>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text); margin: var(--space-8) 0 0 0;"><strong>73%</strong> complete • 5/9 assignments done • Score: <strong>84%</strong></p>
+                            </div>
+                            <button class="btn btn--primary" style="width: 100%; cursor: pointer;">Continue Learning</button>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Writing Excellence</h3>
+                            <p style="color: var(--color-text-secondary); margin: 0;">Essays, stories & reports</p>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-details">
+                                <div class="course-detail">
+                                    <strong>24</strong>
+                                    <p>Lessons</p>
+                                </div>
+                                <div class="course-detail">
+                                    <strong>6 hrs</strong>
+                                    <p>Duration</p>
+                                </div>
+                                <div class="course-detail">
+                                    <strong>All</strong>
+                                    <p>Levels</p>
+                                </div>
+                            </div>
+                            <p class="course-description">Become a better writer. Learn structure, style, grammar, and how to express your ideas clearly.</p>
+                            <div style="margin: var(--space-16) 0; background: rgba(var(--color-teal-500-rgb), 0.1); padding: var(--space-12); border-radius: var(--radius-base);">
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0;"><strong>📈 Your Progress</strong></p>
+                                <div style="width: 100%; height: 8px; background: var(--color-secondary); border-radius: var(--radius-full); overflow: hidden;">
+                                    <div style="width: 96%; height: 100%; background: var(--color-primary);"></div>
+                                </div>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text); margin: var(--space-8) 0 0 0;"><strong>96%</strong> complete • 8/8 assignments done • Score: <strong>95%</strong></p>
+                            </div>
+                            <button class="btn btn--primary" style="width: 100%; cursor: pointer;">Continue Learning</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teacher Dashboard -->
+        <div id="teacherDashboard" style="display: none;">
+            <div class="teacher-dashboard">
+                <div class="dashboard-title">
+                    <h2>Teacher Dashboard</h2>
+                    <p style="color: var(--color-text-secondary);">Manage your classes and monitor student progress</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>📊 Total Students</h3>
+                        <div class="stat-value">247</div>
+                        <p style="color: var(--color-text-secondary);">Across all classes</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>✅ Assignments Completed</h3>
+                        <div class="stat-value">1,205</div>
+                        <p style="color: var(--color-text-secondary);">This week</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>📈 Average Score</h3>
+                        <div class="stat-value">87%</div>
+                        <p style="color: var(--color-text-secondary);">Across all students</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>🎯 Classes Active</h3>
+                        <div class="stat-value">8</div>
+                        <p style="color: var(--color-text-secondary);">Currently running</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>⭐ Top Performer</h3>
+                        <div class="stat-value">Sarah M.</div>
+                        <p style="color: var(--color-text-secondary);">95% average</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>📝 Pending Reviews</h3>
+                        <div class="stat-value">23</div>
+                        <p style="color: var(--color-text-secondary);">Assignments to grade</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--space-32); background: var(--color-surface); padding: var(--space-24); border-radius: var(--radius-lg); border: 1px solid var(--color-card-border);">
+                    <h3 style="margin-bottom: var(--space-16);">Quick Actions</h3>
+                    <div style="display: flex; gap: var(--space-16); flex-wrap: wrap;">
+                        <button class="btn btn--primary" style="cursor: pointer;" onclick="openFileUpload()">Create Assignment</button>
+                        <button class="btn btn--outline" style="cursor: pointer;">View Class Reports</button>
+                        <button class="btn btn--outline" style="cursor: pointer;">Message Students</button>
+                        <button class="btn btn--outline" style="cursor: pointer;">Schedule Class</button>
+                    </div>
+                </div>
+                
+                <div id="uploadModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center;">
+                    <div style="background: var(--color-surface); padding: var(--space-32); border-radius: var(--radius-lg); max-width: 500px; width: 90%; box-shadow: var(--shadow-lg); border: 1px solid var(--color-card-border);">
+                        <h2 style="margin-bottom: var(--space-24); color: var(--color-primary);">Upload Assignment</h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Assignment Name</label>
+                            <input type="text" id="assignmentName" class="form-control" placeholder="e.g., Math Chapter 5 Quiz" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Choose File</label>
+                            <input type="file" id="assignmentFile" class="form-control" accept=".pdf,.doc,.docx,.jpg,.png,.txt" />
+                            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-8);">Accepted: PDF, DOC, DOCX, JPG, PNG, TXT</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Due Date</label>
+                            <input type="date" id="dueDate" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Instructions (Optional)</label>
+                            <textarea id="instructions" class="form-control" placeholder="Add any notes or instructions..." style="resize: vertical; min-height: 80px; font-family: var(--font-family-base);"></textarea>
+                        </div>
+
+                        <div style="display: flex; gap: var(--space-16); margin-top: var(--space-24);">
+                            <button class="btn btn--primary" style="flex: 1; cursor: pointer;" onclick="submitAssignment()">Upload Assignment</button>
+                            <button class="btn btn--outline" style="flex: 1; cursor: pointer;" onclick="closeFileUpload()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Chat Screen -->
+        <div id="aiScreen" style="display: none;" class="ai-chat">
+            <div class="model-selector-bar">
+                <span class="model-label">AI Model:</span>
+                <div class="model-buttons">
+                    <button class="model-btn active" onclick="selectModel('perplexity')">🔍 Perplexity</button>
+                    <button class="model-btn" onclick="selectModel('chatgpt')">✨ ChatGPT</button>
+                    <button class="model-btn" onclick="selectModel('gemini')">🌟 Gemini</button>
+                    <button class="model-btn" onclick="selectModel('claude')">🧠 Claude</button>
+                </div>
+            </div>
+            <div class="chat-container" id="chatContainer">
+                <div class="chat-message message-ai">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        Hi! I'm Perplexity AI. How can I help you with your studies today?
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)" />
+                    <button class="btn btn--primary chat-send-btn" onclick="sendChatMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STUDENT_CODE = 'Jasson67';
+        const TEACHER_CODE = 'Jay67';
+        let currentModel = 'perplexity';
+
+        function selectModel(model) {
+            currentModel = model;
+            document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const welcomeMessages = {
+                'perplexity': "Hi! I'm Perplexity AI. How can I help you with your studies today?",
+                'chatgpt': "Hello! I'm ChatGPT. I'm here to help you with homework, explanations, and learning. What do you need?",
+                'gemini': "Hi there! I'm Google Gemini. Let's explore topics together and I'll help you understand anything!",
+                'claude': "Greetings! I'm Claude. I'm ready to help you learn, analyze, and solve problems. What's on your mind?"
+            };
+
+            const container = document.getElementById('chatContainer');
+            container.innerHTML = `<div class="chat-message message-ai">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    ${welcomeMessages[model]}
+                </div>
+            </div>`;
+        }
+
+        function showStudentLogin() {
+            document.getElementById('roleScreen').classList.remove('active');
+            document.getElementById('studentLoginScreen').classList.add('active');
+        }
+
+        function showTeacherLogin() {
+            document.getElementById('roleScreen').classList.remove('active');
+            document.getElementById('teacherLoginScreen').classList.add('active');
+        }
+
+        function backToRole() {
+            document.getElementById('studentLoginScreen').classList.remove('active');
+            document.getElementById('teacherLoginScreen').classList.remove('active');
+            document.getElementById('roleScreen').classList.add('active');
+            document.getElementById('studentNameInput').value = '';
+            document.getElementById('studentCodeInput').value = '';
+            document.getElementById('teacherNameInput').value = '';
+            document.getElementById('teacherCodeInput').value = '';
+            clearErrors();
+        }
+
+        function clearErrors() {
+            document.getElementById('studentNameError').classList.remove('show');
+            document.getElementById('studentCodeError').classList.remove('show');
+            document.getElementById('teacherNameError').classList.remove('show');
+            document.getElementById('teacherCodeError').classList.remove('show');
+        }
+
+        function handleStudentLogin() {
+            const name = document.getElementById('studentNameInput').value.trim();
+            const code = document.getElementById('studentCodeInput').value.trim();
+
+            document.getElementById('studentNameError').classList.remove('show');
+            document.getElementById('studentCodeError').classList.remove('show');
+
+            let hasError = false;
+            if (!name) {
+                document.getElementById('studentNameError').classList.add('show');
+                hasError = true;
+            }
+            if (!code) {
+                document.getElementById('studentCodeError').classList.add('show');
+                hasError = true;
+            }
+            if (hasError) return;
+            if (code !== STUDENT_CODE) {
+                document.getElementById('studentCodeError').classList.add('show');
+                return;
+            }
+
+            showDashboard({ name, role: 'student' });
+        }
+
+        function handleTeacherLogin() {
+            const name = document.getElementById('teacherNameInput').value.trim();
+            const code = document.getElementById('teacherCodeInput').value.trim();
+
+            document.getElementById('teacherNameError').classList.remove('show');
+            document.getElementById('teacherCodeError').classList.remove('show');
+
+            let hasError = false;
+            if (!name) {
+                document.getElementById('teacherNameError').classList.add('show');
+                hasError = true;
+            }
+            if (!code) {
+                document.getElementById('teacherCodeError').classList.add('show');
+                hasError = true;
+            }
+            if (hasError) return;
+            if (code !== TEACHER_CODE) {
+                document.getElementById('teacherCodeError').classList.add('show');
+                return;
+            }
+
+            showDashboard({ name, role: 'teacher' });
+        }
+
+        function showDashboard(userData) {
+            document.getElementById('roleScreen').classList.remove('active');
+            document.getElementById('studentLoginScreen').classList.remove('active');
+            document.getElementById('teacherLoginScreen').classList.remove('active');
+            document.getElementById('mainContent').classList.add('active');
+            document.getElementById('userDisplay').textContent = userData.name;
+            document.getElementById('roleDisplay').textContent = userData.role === 'teacher' ? 'Teacher' : 'Student';
+            document.getElementById('studentName').textContent = userData.name;
+            window.currentUser = userData;
+            goHome();
+        }
+
+        function updateNavLinks() {
+            document.getElementById('homeLink').classList.remove('active');
+            document.getElementById('dashboardLink').classList.remove('active');
+            document.getElementById('aiLink').classList.remove('active');
+        }
+
+        function goHome() {
+            updateNavLinks();
+            document.getElementById('homeLink').classList.add('active');
+            document.getElementById('homeScreen').classList.add('active');
+            document.getElementById('studentDashboard').style.display = 'none';
+            document.getElementById('teacherDashboard').style.display = 'none';
+            document.getElementById('aiScreen').style.display = 'none';
+        }
+
+        function goToDashboard() {
+            updateNavLinks();
+            document.getElementById('dashboardLink').classList.add('active');
+            document.getElementById('homeScreen').classList.remove('active');
+            document.getElementById('aiScreen').style.display = 'none';
+            
+            if (window.currentUser && window.currentUser.role === 'teacher') {
+                document.getElementById('teacherDashboard').style.display = 'block';
+                document.getElementById('studentDashboard').style.display = 'none';
+            } else {
+                document.getElementById('studentDashboard').style.display = 'block';
+                document.getElementById('teacherDashboard').style.display = 'none';
+            }
+        }
+
+        function goToAI() {
+            updateNavLinks();
+            document.getElementById('aiLink').classList.add('active');
+            document.getElementById('homeScreen').classList.remove('active');
+            document.getElementById('studentDashboard').style.display = 'none';
+            document.getElementById('teacherDashboard').style.display = 'none';
+            document.getElementById('aiScreen').style.display = 'flex';
+            document.getElementById('chatInput').focus();
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            const container = document.getElementById('chatContainer');
+            
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message message-user';
+            userMsg.innerHTML = `
+                <div class="message-content">${escapeHtml(message)}</div>
+                <div class="message-avatar">👤</div>
+            `;
+            container.appendChild(userMsg);
+
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+
+            setTimeout(() => {
+                const responses = {
+                    'perplexity': "I'm Perplexity AI integrated into EduAI Studio. I specialize in searching the web and providing accurate, cited answers. I can help you with research, homework, and understanding any topic!",
+                    'chatgpt': "I'm ChatGPT! I'm designed for engaging conversations and can help you brainstorm, explain complex topics, code, write essays, and much more. What topic interests you?",
+                    'gemini': "I'm Google Gemini! I can assist with creative thinking, analysis, coding, writing, and problem-solving. I work best when you give me detailed context. How can I help?",
+                    'claude': "I'm Claude, made by Anthropic! I'm good at writing, analysis, math, coding, and thoughtful discussions. I aim to be helpful, harmless, and honest. What would you like to explore?"
+                };
+
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-message message-ai';
+                aiMsg.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">${responses[currentModel]}</div>
+                `;
+                container.appendChild(aiMsg);
+                container.scrollTop = container.scrollHeight;
+            }, 500);
+        }
+
+        function handleChatKeypress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendChatMessage();
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function handleLogout() {
+            document.getElementById('roleScreen').classList.add('active');
+            document.getElementById('mainContent').classList.remove('active');
+            document.getElementById('homeScreen').classList.remove('active');
+            document.getElementById('studentDashboard').style.display = 'none';
+            document.getElementById('teacherDashboard').style.display = 'none';
+            document.getElementById('aiScreen').style.display = 'none';
+            document.getElementById('studentNameInput').value = '';
+            document.getElementById('studentCodeInput').value = '';
+            document.getElementById('teacherNameInput').value = '';
+            document.getElementById('teacherCodeInput').value = '';
+            document.getElementById('chatContainer').innerHTML = '<div class="chat-message message-ai"><div class="message-avatar">🤖</div><div class="message-content">Hi! I\'m Perplexity AI. How can I help you with your studies today?</div></div>';
+            currentModel = 'perplexity';
+            document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.model-btn')[0].classList.add('active');
+            clearErrors();
+            window.currentUser = null;
+        }
+
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                const studentLoginActive = document.getElementById('studentLoginScreen').classList.contains('active');
+                const teacherLoginActive = document.getElementById('teacherLoginScreen').classList.contains('active');
+                if (studentLoginActive) handleStudentLogin();
+                else if (teacherLoginActive) handleTeacherLogin();
+            }
+        });
+
+        function openFileUpload() {
+            document.getElementById('uploadModal').style.display = 'flex';
+        }
+
+        function closeFileUpload() {
+            document.getElementById('uploadModal').style.display = 'none';
+            document.getElementById('assignmentName').value = '';
+            document.getElementById('assignmentFile').value = '';
+            document.getElementById('dueDate').value = '';
+            document.getElementById('instructions').value = '';
+        }
+
+        function submitAssignment() {
+            const name = document.getElementById('assignmentName').value.trim();
+            const file = document.getElementById('assignmentFile').files[0];
+            const dueDate = document.getElementById('dueDate').value;
+            const instructions = document.getElementById('instructions').value.trim();
+
+            if (!name) {
+                alert('Please enter an assignment name');
+                return;
+            }
+
+            if (!file) {
+                alert('Please select a file to upload');
+                return;
+            }
+
+            if (!dueDate) {
+                alert('Please select a due date');
+                return;
+            }
+
+            alert(`✅ Assignment "${name}" uploaded successfully!\n\nFile: ${file.name}\nDue: ${new Date(dueDate).toLocaleDateString()}\n\nNotification sent to all students.`);
+            closeFileUpload();
+        }
+
+        document.getElementById('uploadModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeFileUpload();
+            }
+        });
+    </script>
+</body>
+</html>
